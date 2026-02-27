@@ -1,18 +1,21 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def inicio():
-    return  '<h1>Ola python</h1>'
+    return  render_template('index.html')
 
 
 @app.route('/sobre')
 def sobre ():
-    return '''
-<h1>pagina em Flask</h1>
-<p>Desenvolvida por <b>Vitor</b) </p>
-'''
+    return  render_template ('sobre.html')
+
+@app.route('/boostrap')
+def ver_algo ():
+    return  render_template ('boostrap.html')
+
+
 @app.route('/sobre/fatec')
 def sobre_fatec ():
     return '''
@@ -27,3 +30,7 @@ def exibe_cor(cor1):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
